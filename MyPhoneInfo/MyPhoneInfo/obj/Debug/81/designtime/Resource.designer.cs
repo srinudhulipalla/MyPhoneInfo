@@ -2399,8 +2399,8 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C0011
 			public const int action_mode_close_button = 2131492881;
 			
-			// aapt resource value: 0x7F020014
-			public const int action_settings = 2130837524;
+			// aapt resource value: 0x7F020018
+			public const int action_settings = 2130837528;
 			
 			// aapt resource value: 0x7F0C0004
 			public const int action_text = 2131492868;
@@ -2507,6 +2507,9 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C0009
 			public const int forever = 2131492873;
 			
+			// aapt resource value: 0x7F020006
+			public const int frameLayout1 = 2130837510;
+			
 			// aapt resource value: 0x7F0C0034
 			public const int ghost_view = 2131492916;
 			
@@ -2522,8 +2525,8 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C0038
 			public const int image = 2131492920;
 			
-			// aapt resource value: 0x7F020006
-			public const int imageView = 2130837510;
+			// aapt resource value: 0x7F020010
+			public const int imageView = 2130837520;
 			
 			// aapt resource value: 0x7F0C000C
 			public const int info = 2131492876;
@@ -2549,6 +2552,9 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C0040
 			public const int listMode = 2131492928;
 			
+			// aapt resource value: 0x7F020009
+			public const int listView1 = 2130837513;
+			
 			// aapt resource value: 0x7F0C0041
 			public const int list_item = 2131492929;
 			
@@ -2570,23 +2576,23 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C0047
 			public const int navigation_header_container = 2131492935;
 			
-			// aapt resource value: 0x7F020008
-			public const int nav_camera = 2130837512;
-			
-			// aapt resource value: 0x7F020009
-			public const int nav_gallery = 2130837513;
-			
-			// aapt resource value: 0x7F020011
-			public const int nav_manage = 2130837521;
+			// aapt resource value: 0x7F020012
+			public const int nav_camera = 2130837522;
 			
 			// aapt resource value: 0x7F020013
-			public const int nav_send = 2130837523;
+			public const int nav_gallery = 2130837523;
 			
-			// aapt resource value: 0x7F020012
-			public const int nav_share = 2130837522;
+			// aapt resource value: 0x7F020015
+			public const int nav_manage = 2130837525;
 			
-			// aapt resource value: 0x7F020010
-			public const int nav_slideshow = 2130837520;
+			// aapt resource value: 0x7F020017
+			public const int nav_send = 2130837527;
+			
+			// aapt resource value: 0x7F020016
+			public const int nav_share = 2130837526;
+			
+			// aapt resource value: 0x7F020014
+			public const int nav_slideshow = 2130837524;
 			
 			// aapt resource value: 0x7F020003
 			public const int nav_view = 2130837507;
@@ -2756,8 +2762,14 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7F0C007C
 			public const int textSpacerNoTitle = 2131492988;
 			
+			// aapt resource value: 0x7F020011
+			public const int textView = 2130837521;
+			
 			// aapt resource value: 0x7F020007
-			public const int textView = 2130837511;
+			public const int textView1 = 2130837511;
+			
+			// aapt resource value: 0x7F020008
+			public const int textView2 = 2130837512;
 			
 			// aapt resource value: 0x7F0C007D
 			public const int text_input_password_toggle = 2131492989;
@@ -3002,7 +3014,13 @@ namespace MyPhoneInfo
 			public const int design_text_input_password_icon = 2131689512;
 			
 			// aapt resource value: 0x7F030005
-			public const int nav_header_main = 2130903045;
+			public const int list_item_main = 2130903045;
+			
+			// aapt resource value: 0x7F030006
+			public const int list_main = 2130903046;
+			
+			// aapt resource value: 0x7F030007
+			public const int nav_header_main = 2130903047;
 			
 			// aapt resource value: 0x7F0F0001
 			public const int notification_action = 2131689473;

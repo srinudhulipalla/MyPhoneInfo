@@ -8,6 +8,7 @@ using Android.Support.V4.View;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Views;
+using MyPhoneInfo.Fragments;
 
 namespace MyPhoneInfo
 {
@@ -18,6 +19,8 @@ namespace MyPhoneInfo
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_main);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
 
@@ -31,6 +34,12 @@ namespace MyPhoneInfo
 
             NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             navigationView.SetNavigationItemSelectedListener(this);
+
+            if (savedInstanceState == null)
+            {
+                navigationView.SetCheckedItem(Resource.Id.nav_camera);
+                navigationView.Menu.PerformIdentifierAction(Resource.Id.nav_camera, MenuPerformFlags.None);
+            }
         }
 
         public override void OnBackPressed()
@@ -42,6 +51,23 @@ namespace MyPhoneInfo
             }
             else
             {
+                if (this.FragmentManager.BackStackEntryCount == 1)
+                {
+                    base.OnBackPressed();
+                    base.OnBackPressed();
+                }
+
+                if (this.FragmentManager.BackStackEntryCount > 1)
+                {
+                    String title = this.FragmentManager.GetBackStackEntryAt(this.FragmentManager.BackStackEntryCount - 2).Name;
+                    int pos = int.Parse(title);
+
+                    NavigationView navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+                    navigationView.SetCheckedItem(pos);
+                    this.Title = navigationView.Menu.FindItem(pos).ToString();
+
+                }
+
                 base.OnBackPressed();
             }
         }
@@ -76,11 +102,37 @@ namespace MyPhoneInfo
 
             if (id == Resource.Id.nav_camera)
             {
-                // Handle the camera action
+                this.Title = item.ToString();
+                // Create a new fragment and a transaction.
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                MyPhoneInfo.Fragments.System aDifferentDetailsFrag = new MyPhoneInfo.Fragments.System();
+
+                // The fragment will have the ID of Resource.Id.fragment_container.
+                fragmentTx.Replace(Resource.Id.frameLayout1, aDifferentDetailsFrag);
+
+                // Add the transaction to the back stack.
+                fragmentTx.AddToBackStack(id.ToString());
+
+                fragmentTx.SetTransition(FragmentTransit.FragmentFade);
+                // Commit the transaction.
+                fragmentTx.Commit();
             }
             else if (id == Resource.Id.nav_gallery)
             {
+                this.Title = item.ToString();
+                // Create a new fragment and a transaction.
+                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+                CPU aDifferentDetailsFrag = new CPU();
 
+                // The fragment will have the ID of Resource.Id.fragment_container.
+                fragmentTx.Replace(Resource.Id.frameLayout1, aDifferentDetailsFrag);
+
+                // Add the transaction to the back stack.
+                fragmentTx.AddToBackStack(id.ToString());
+
+                fragmentTx.SetTransition(FragmentTransit.FragmentFade);
+                // Commit the transaction.
+                fragmentTx.Commit();
             }
             else if (id == Resource.Id.nav_slideshow)
             {
@@ -103,6 +155,14 @@ namespace MyPhoneInfo
             drawer.CloseDrawer(GravityCompat.Start);
             return true;
         }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
     }
 }
 

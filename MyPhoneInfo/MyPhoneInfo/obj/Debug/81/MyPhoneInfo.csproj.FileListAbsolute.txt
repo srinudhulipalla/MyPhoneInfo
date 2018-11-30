@@ -4,7 +4,6 @@ D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\MyPhoneInfo.MyPhoneInf
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\MyPhoneInfo.MyPhoneInfo-Signed.apk
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\MonoAndroid,Version=v8.1.AssemblyAttributes.cs
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\MyPhoneInfo.nuget.stamp
-D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\MyPhoneInfo.csprojAssemblyReference.cache
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\libraryimports.cache.stamp
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res.flag
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\MyPhoneInfo.csproj.CoreCompileInputs.cache
@@ -48,6 +47,8 @@ D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\mipmap-xxhdpi\i
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\mipmap-xxxhdpi\ic_launcher.png
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\mipmap-xxxhdpi\ic_launcher_foreground.png
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\mipmap-xxxhdpi\ic_launcher_round.png
+D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\layout\list_main.xml
+D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\res\layout\list_item_main.xml
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\R.cs.flag
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\R.txt
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\uploadflags.txt
@@ -55,13 +56,13 @@ D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\Mono.Android.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\mscorlib.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Core.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.pdb
+D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Numerics.pdb
+D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Numerics.Vectors.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Xml.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Net.Http.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Runtime.Serialization.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.ServiceModel.Internals.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\Mono.Security.pdb
-D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Numerics.pdb
-D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\bin\Debug\System.Numerics.Vectors.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\linksrc\MyPhoneInfo.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\linksrc\Mono.Android.pdb
 D:\Srinivas\MyPhoneInfo\MyPhoneInfo\MyPhoneInfo\obj\Debug\81\linksrc\mscorlib.pdb

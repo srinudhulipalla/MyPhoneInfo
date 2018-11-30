@@ -3,5 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>VisualStudio_android-23_x86_phone</SelectedDevice>
     <DefaultDevice>VisualStudio_android-23_x86_phone</DefaultDevice>
+    <AndroidDesignerPreferredTheme>AppTheme</AndroidDesignerPreferredTheme>
+    <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

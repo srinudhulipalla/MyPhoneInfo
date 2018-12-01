@@ -98,58 +98,38 @@ namespace MyPhoneInfo
 
         public bool OnNavigationItemSelected(IMenuItem item)
         {
-            int id = item.ItemId;
+            FragmentTransaction fragment = this.FragmentManager.BeginTransaction();
+            fragment.SetTransition(FragmentTransit.FragmentFade);
 
-            if (id == Resource.Id.nav_camera)
-            {
-                this.Title = item.ToString();
-                // Create a new fragment and a transaction.
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                MyPhoneInfo.Fragments.System aDifferentDetailsFrag = new MyPhoneInfo.Fragments.System();
-
-                // The fragment will have the ID of Resource.Id.fragment_container.
-                fragmentTx.Replace(Resource.Id.frameLayout1, aDifferentDetailsFrag);
-
-                // Add the transaction to the back stack.
-                fragmentTx.AddToBackStack(id.ToString());
-
-                fragmentTx.SetTransition(FragmentTransit.FragmentFade);
-                // Commit the transaction.
-                fragmentTx.Commit();
+            if (item.ItemId == Resource.Id.nav_camera)
+            {                
+                fragment.Replace(Resource.Id.fragmentContainer, new MyPhoneInfo.Fragments.System());
             }
-            else if (id == Resource.Id.nav_gallery)
+            else if (item.ItemId == Resource.Id.nav_gallery)
             {
-                this.Title = item.ToString();
-                // Create a new fragment and a transaction.
-                FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
-                CPU aDifferentDetailsFrag = new CPU();
-
-                // The fragment will have the ID of Resource.Id.fragment_container.
-                fragmentTx.Replace(Resource.Id.frameLayout1, aDifferentDetailsFrag);
-
-                // Add the transaction to the back stack.
-                fragmentTx.AddToBackStack(id.ToString());
-
-                fragmentTx.SetTransition(FragmentTransit.FragmentFade);
-                // Commit the transaction.
-                fragmentTx.Commit();
+                fragment.Replace(Resource.Id.fragmentContainer, new CPU());
             }
-            else if (id == Resource.Id.nav_slideshow)
+            else if (item.ItemId == Resource.Id.nav_slideshow)
             {
 
             }
-            else if (id == Resource.Id.nav_manage)
+            else if (item.ItemId == Resource.Id.nav_manage)
             {
 
             }
-            else if (id == Resource.Id.nav_share)
+            else if (item.ItemId == Resource.Id.nav_share)
             {
 
             }
-            else if (id == Resource.Id.nav_send)
+            else if (item.ItemId == Resource.Id.nav_send)
             {
 
             }
+            
+            fragment.AddToBackStack(item.ItemId.ToString());
+            fragment.Commit();
+
+            this.Title = item.ToString();
 
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             drawer.CloseDrawer(GravityCompat.Start);

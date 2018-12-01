@@ -2565,7 +2565,7 @@ namespace MyPhoneInfo
 			public const int forever = 2131230808;
 			
 			// aapt resource value: 0x7f08008f
-			public const int frameLayout1 = 2131230863;
+			public const int fragmentContainer = 2131230863;
 			
 			// aapt resource value: 0x7f08000a
 			public const int ghost_view = 2131230730;

@@ -828,8 +828,8 @@ int id largeLabel 0x7f080091
 int id left 0x7f080049
 int id line1 0x7f080017
 int id line3 0x7f080018
+int id listMain 0x7f0800a0
 int id listMode 0x7f08001d
-int id listView1 0x7f0800a0
 int id list_item 0x7f080061
 int id masked 0x7f0800b8
 int id media_actions 0x7f0800a9
@@ -905,8 +905,6 @@ int id text2 0x7f08001b
 int id textSpacerNoButtons 0x7f08006a
 int id textSpacerNoTitle 0x7f080069
 int id textView 0x7f0800a2
-int id textView1 0x7f08009e
-int id textView2 0x7f08009f
 int id text_input_password_toggle 0x7f08009d
 int id textinput_counter 0x7f080014
 int id textinput_error 0x7f080015
@@ -923,6 +921,8 @@ int id transition_layout_save 0x7f080010
 int id transition_position 0x7f080011
 int id transition_scene_layoutid_cache 0x7f080012
 int id transition_transform 0x7f080013
+int id txtName 0x7f08009e
+int id txtValue 0x7f08009f
 int id uniform 0x7f08002d
 int id up 0x7f080009
 int id useLogo 0x7f080026

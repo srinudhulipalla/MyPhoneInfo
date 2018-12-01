@@ -3044,8 +3044,8 @@ containing a value of this type.
         public static int left=0x7f080049;
         public static int line1=0x7f080017;
         public static int line3=0x7f080018;
+        public static int listMain=0x7f0800a0;
         public static int listMode=0x7f08001d;
-        public static int listView1=0x7f0800a0;
         public static int list_item=0x7f080061;
         public static int masked=0x7f0800b8;
         public static int media_actions=0x7f0800a9;

@@ -2612,11 +2612,11 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7f080018
 			public const int line3 = 2131230744;
 			
+			// aapt resource value: 0x7f0800a0
+			public const int listMain = 2131230880;
+			
 			// aapt resource value: 0x7f08001d
 			public const int listMode = 2131230749;
-			
-			// aapt resource value: 0x7f0800a0
-			public const int listView1 = 2131230880;
 			
 			// aapt resource value: 0x7f080061
 			public const int list_item = 2131230817;
@@ -2843,12 +2843,6 @@ namespace MyPhoneInfo
 			// aapt resource value: 0x7f0800a2
 			public const int textView = 2131230882;
 			
-			// aapt resource value: 0x7f08009e
-			public const int textView1 = 2131230878;
-			
-			// aapt resource value: 0x7f08009f
-			public const int textView2 = 2131230879;
-			
 			// aapt resource value: 0x7f08009d
 			public const int text_input_password_toggle = 2131230877;
 			
@@ -2896,6 +2890,12 @@ namespace MyPhoneInfo
 			
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
+			
+			// aapt resource value: 0x7f08009e
+			public const int txtName = 2131230878;
+			
+			// aapt resource value: 0x7f08009f
+			public const int txtValue = 2131230879;
 			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;

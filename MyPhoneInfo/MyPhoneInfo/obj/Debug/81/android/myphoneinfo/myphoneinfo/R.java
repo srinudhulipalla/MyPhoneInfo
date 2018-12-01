@@ -3044,8 +3044,8 @@ containing a value of this type.
         public static final int left=0x7f080049;
         public static final int line1=0x7f080017;
         public static final int line3=0x7f080018;
+        public static final int listMain=0x7f0800a0;
         public static final int listMode=0x7f08001d;
-        public static final int listView1=0x7f0800a0;
         public static final int list_item=0x7f080061;
         public static final int masked=0x7f0800b8;
         public static final int media_actions=0x7f0800a9;
@@ -3121,8 +3121,6 @@ containing a value of this type.
         public static final int textSpacerNoButtons=0x7f08006a;
         public static final int textSpacerNoTitle=0x7f080069;
         public static final int textView=0x7f0800a2;
-        public static final int textView1=0x7f08009e;
-        public static final int textView2=0x7f08009f;
         public static final int text_input_password_toggle=0x7f08009d;
         public static final int textinput_counter=0x7f080014;
         public static final int textinput_error=0x7f080015;
@@ -3139,6 +3137,8 @@ containing a value of this type.
         public static final int transition_position=0x7f080011;
         public static final int transition_scene_layoutid_cache=0x7f080012;
         public static final int transition_transform=0x7f080013;
+        public static final int txtName=0x7f08009e;
+        public static final int txtValue=0x7f08009f;
         public static final int uniform=0x7f08002d;
         public static final int up=0x7f080009;
         public static final int useLogo=0x7f080026;

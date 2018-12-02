@@ -13,8 +13,10 @@
 		android:text="TextView1"
 		android:layout_weight="1"
 		android:gravity="left"
+		android:height="30dp"
 		android:paddingLeft="10dp"
-		android:paddingTop="5dp" />
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp" />
     <TextView
         android:id="@+id/txtValue"
         android:layout_width="90dp"              
@@ -22,6 +24,9 @@
         android:text="TextView2"
         android:layout_weight="1"
         android:gravity="left"
+		android:textColor="@color/colorPrimaryDark"
+		android:height="30dp"
 		android:paddingLeft="10dp"
-		android:paddingTop="5dp" />
+		android:paddingTop="5dp"
+		android:paddingBottom="5dp" />
 </LinearLayout>

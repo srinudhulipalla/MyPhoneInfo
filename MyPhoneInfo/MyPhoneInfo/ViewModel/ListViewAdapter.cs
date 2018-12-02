@@ -51,7 +51,7 @@ namespace MyPhoneInfo.ViewModel
 
         public override long GetItemId(int position)
         {
-            return 0;
+            return position;
         }
 
         public override View GetView(int position, View convertView, ViewGroup parent)

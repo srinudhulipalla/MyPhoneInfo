@@ -37,8 +37,8 @@ namespace MyPhoneInfo
 
             if (savedInstanceState == null)
             {
-                navigationView.SetCheckedItem(Resource.Id.nav_camera);
-                navigationView.Menu.PerformIdentifierAction(Resource.Id.nav_camera, MenuPerformFlags.None);
+                navigationView.SetCheckedItem(Resource.Id.nav_system);
+                navigationView.Menu.PerformIdentifierAction(Resource.Id.nav_system, MenuPerformFlags.None);
             }
         }
 
@@ -101,31 +101,35 @@ namespace MyPhoneInfo
             FragmentTransaction fragment = this.FragmentManager.BeginTransaction();
             fragment.SetTransition(FragmentTransit.FragmentFade);
 
-            if (item.ItemId == Resource.Id.nav_camera)
+            if (item.ItemId == Resource.Id.nav_system)
             {                
                 fragment.Replace(Resource.Id.fragmentContainer, new MyPhoneInfo.Fragments.System());
             }
-            else if (item.ItemId == Resource.Id.nav_gallery)
+            else if (item.ItemId == Resource.Id.nav_cpu)
             {
                 fragment.Replace(Resource.Id.fragmentContainer, new CPU());
             }
-            else if (item.ItemId == Resource.Id.nav_slideshow)
+            else if (item.ItemId == Resource.Id.nav_memory)
             {
 
             }
-            else if (item.ItemId == Resource.Id.nav_manage)
+            else if (item.ItemId == Resource.Id.nav_display)
             {
 
             }
-            else if (item.ItemId == Resource.Id.nav_share)
+            else if (item.ItemId == Resource.Id.nav_battery)
             {
 
             }
-            else if (item.ItemId == Resource.Id.nav_send)
+            else if (item.ItemId == Resource.Id.nav_network)
             {
 
             }
-            
+            else if (item.ItemId == Resource.Id.nav_sensors)
+            {
+
+            }
+
             fragment.AddToBackStack(item.ItemId.ToString());
             fragment.Commit();
 

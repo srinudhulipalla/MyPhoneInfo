@@ -5,24 +5,36 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_system"
+            android:icon="@drawable/system"
+            android:title="System" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_cpu"
+            android:icon="@drawable/cpu"
+            android:title="CPU" />
+      <item
+            android:id="@+id/nav_memory"
+            android:icon="@drawable/memory"
+            android:title="Memory" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_display"
+            android:icon="@drawable/display"
+            android:title="Display" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_battery"
+            android:icon="@drawable/battery"
+            android:title="Battery" />
+      <item
+            android:id="@+id/nav_network"
+            android:icon="@drawable/network"
+            android:title="Network" />
+      <item
+            android:id="@+id/nav_sensors"
+            android:icon="@drawable/sensors"
+            android:title="Sensors" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/nav_share"

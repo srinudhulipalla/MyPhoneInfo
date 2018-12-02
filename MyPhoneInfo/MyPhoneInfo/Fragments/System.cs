@@ -71,8 +71,13 @@ namespace MyPhoneInfo.Fragments
         {
             List<ListItemModel> mItems = new List<ListItemModel>();
             mItems.Add(new ListItemModel() { Name = "Model", Value = DeviceInfo.Model });
+            mItems.Add(new ListItemModel() { Name = "Type", Value = DeviceInfo.DeviceType.ToString() });
             mItems.Add(new ListItemModel() { Name = "Manufacturer", Value = DeviceInfo.Manufacturer });
             mItems.Add(new ListItemModel() { Name = "Name", Value = DeviceInfo.Name });
+            mItems.Add(new ListItemModel() { Name = "Platform", Value = DeviceInfo.Platform });
+            mItems.Add(new ListItemModel() { Name = "Version", Value = DeviceInfo.Version.ToString() });
+            mItems.Add(new ListItemModel() { Name = "VersionString", Value = DeviceInfo.VersionString });
+            mItems.Add(new ListItemModel() { Name = "Idiom", Value = DeviceInfo.Idiom });
 
             return mItems;
         }

@@ -1,0 +1,19 @@
+﻿External memory card size:
+public static boolean externalMemoryAvailable() {
+    return android.os.Environment.
+            getExternalStorageState().equals(
+            android.os.Environment.MEDIA_MOUNTED);
+}
+
+public static String getTotalExternalMemorySize() {
+    if (externalMemoryAvailable()) {
+        File path = Environment.
+                getExternalStorageDirectory();
+        StatFs stat = new StatFs(path.getPath());
+        long BlockSize = stat.getBlockSize();
+        long TotalBlocks = stat.getBlockCount();
+        return formatSize(TotalBlocks * BlockSize);
+    } else {
+        return ERROR;
+    }
+}

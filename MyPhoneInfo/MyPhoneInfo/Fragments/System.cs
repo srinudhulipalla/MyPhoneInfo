@@ -58,71 +58,45 @@ namespace MyPhoneInfo.Fragments
             }
 
             ListView listView = state.ListView;
-            ListViewAdapter obj = listView.Adapter as ListViewAdapter;
+            ListViewAdapter adapter = listView.Adapter as ListViewAdapter;
 
             this.Activity.RunOnUiThread(() =>
             {
-                ActivityManager memInfo1 = (ActivityManager)Context.GetSystemService(Context.ActivityService);
-                ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
-                memInfo1.GetMemoryInfo(memInfo);
+                ActivityManager actManager = (ActivityManager)Context.GetSystemService(Context.ActivityService);
+                ActivityManager.MemoryInfo memory = new ActivityManager.MemoryInfo();
+                actManager.GetMemoryInfo(memory);
 
-                obj[0].Value = $"{DeviceInfo.Manufacturer} {DeviceInfo.Name}" + " " + ConvertToSize(memInfo.AvailMem, 2);
-                obj.NotifyDataSetChanged();
+                var itemAvailRAM = adapter.Items.FirstOrDefault(i => i.Id == 130); //Available RAM
+
+                itemAvailRAM.Value = Utils.ToSize(memory.AvailMem, 2);
+                adapter.NotifyDataSetChanged();
             });
         }
 
         List<ListItemModel> GetSystemInfo()
         {
+            ActivityManager actManager = (ActivityManager)Context.GetSystemService(Context.ActivityService);
+            ActivityManager.MemoryInfo memory = new ActivityManager.MemoryInfo();
+            actManager.GetMemoryInfo(memory);
+            StatFs statF = new StatFs(Android.OS.Environment.DataDirectory.Path);
+
             List<ListItemModel> items = new List<ListItemModel>();
-            items.Add(new ListItemModel() { Name = "Phone", Value = $"{DeviceInfo.Manufacturer} {DeviceInfo.Name}" });
-            items.Add(new ListItemModel() { Name = "Manufacturer", Value = DeviceInfo.Manufacturer });
-            items.Add(new ListItemModel() { Name = "Model", Value = DeviceInfo.Model });
-            items.Add(new ListItemModel() { Name = "Brand", Value = Build.Brand });
-            items.Add(new ListItemModel() { Name = "Board", Value = Build.Board });
-            items.Add(new ListItemModel() { Name = "Hardware", Value = Build.Hardware });
-            items.Add(new ListItemModel() { Name = "Serial No.", Value = Build.Serial });
-            items.Add(new ListItemModel() { Name = "Screen Resolution", Value = $"{DeviceDisplay.ScreenMetrics.Width} x {DeviceDisplay.ScreenMetrics.Height}" });
-            items.Add(new ListItemModel() { Name = "Device Type", Value = $"{DeviceInfo.Platform} {DeviceInfo.Idiom}" });
-            items.Add(new ListItemModel() { Name = $"{DeviceInfo.Platform} Version", Value = DeviceInfo.VersionString });
-
-           
-
-            ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
-
-            ActivityManager memInfo1 = (ActivityManager)Context.GetSystemService(Context.ActivityService);
-
-            memInfo1.GetMemoryInfo(memInfo); 
-
-            items.Add(new ListItemModel() { Name = $"Total RAM", Value = ConvertToSize(memInfo.TotalMem, 2) });
-            items.Add(new ListItemModel() { Name = $"Avilable RAM", Value = ConvertToSize(memInfo.AvailMem, 2) });
-
-            StatFs stat = new StatFs(Android.OS.Environment.DataDirectory.Path);
-
-            items.Add(new ListItemModel() { Name = $"Total Internal Storage", Value = ConvertToSize(stat.TotalBytes, 2) });
-            items.Add(new ListItemModel() { Name = $"Avilable Available Internal Storage", Value = ConvertToSize(stat.AvailableBytes, 2) });
+            items.Add(new ListItemModel() { Id = 10, Name = "Phone", Value = $"{DeviceInfo.Manufacturer} {DeviceInfo.Name}" });
+            items.Add(new ListItemModel() { Id = 20, Name = "Manufacturer", Value = DeviceInfo.Manufacturer });
+            items.Add(new ListItemModel() { Id = 30, Name = "Model", Value = DeviceInfo.Model });
+            items.Add(new ListItemModel() { Id = 40, Name = "Brand", Value = Build.Brand });
+            items.Add(new ListItemModel() { Id = 50, Name = "Board", Value = Build.Board });
+            items.Add(new ListItemModel() { Id = 60, Name = "Hardware", Value = Build.Hardware });
+            items.Add(new ListItemModel() { Id = 70, Name = "Serial No.", Value = Build.Serial });
+            items.Add(new ListItemModel() { Id = 80, Name = "Screen Resolution", Value = $"{DeviceDisplay.ScreenMetrics.Width} x {DeviceDisplay.ScreenMetrics.Height}" });
+            items.Add(new ListItemModel() { Id = 90, Name = "Device Type", Value = $"{DeviceInfo.Platform} {DeviceInfo.Idiom}" });
+            items.Add(new ListItemModel() { Id = 110, Name = $"{DeviceInfo.Platform} Version", Value = DeviceInfo.VersionString });
+            items.Add(new ListItemModel() { Id = 120, Name = $"Total RAM", Value = Utils.ToSize(memory.TotalMem, 2) });
+            items.Add(new ListItemModel() { Id = 130, Name = $"Avilable RAM", Value = Utils.ToSize(memory.AvailMem, 2) });
+            items.Add(new ListItemModel() { Id = 140, Name = $"Total Internal Storage", Value = Utils.ToSize(statF.TotalBytes, 2) });
+            items.Add(new ListItemModel() { Id = 150, Name = $"Avilable Available Internal Storage", Value = Utils.ToSize(statF.AvailableBytes, 2) });
 
             return items;
-        }
-
-        string ConvertToSize(long value, int decimalPlaces = 0)
-        {
-            long OneKb = 1024;
-            long OneMb = OneKb * 1024;
-            long OneGb = OneMb * 1024;
-            long OneTb = OneGb * 1024;
-
-            var asTb = Math.Round((double)value / OneTb, decimalPlaces);
-            var asGb = Math.Round((double)value / OneGb, decimalPlaces);
-            var asMb = Math.Round((double)value / OneMb, decimalPlaces);
-            var asKb = Math.Round((double)value / OneKb, decimalPlaces);
-
-            string chosenValue = asTb > 1 ? string.Format("{0}Tb", asTb)
-                : asGb > 1 ? string.Format("{0} GB", asGb)
-                : asMb > 1 ? string.Format("{0} MB", asMb)
-                : asKb > 1 ? string.Format("{0} KB", asKb)
-                : string.Format("{0} B", Math.Round((double)value, decimalPlaces));
-
-            return chosenValue;
         }
 
     }

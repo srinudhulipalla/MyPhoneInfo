@@ -38,7 +38,7 @@ namespace MyPhoneInfo
             if (savedInstanceState == null)
             {
                 navigationView.SetCheckedItem(Resource.Id.nav_system);
-                navigationView.Menu.PerformIdentifierAction(Resource.Id.nav_system, MenuPerformFlags.None);
+                navigationView.Menu.PerformIdentifierAction(Resource.Id.nav_cpu, MenuPerformFlags.None);
             }
         }
 
@@ -103,7 +103,7 @@ namespace MyPhoneInfo
 
             if (item.ItemId == Resource.Id.nav_system)
             {                
-                fragment.Replace(Resource.Id.fragmentContainer, new MyPhoneInfo.Fragments.System());
+                fragment.Replace(Resource.Id.fragmentContainer, new SystemInfo());
             }
             else if (item.ItemId == Resource.Id.nav_cpu)
             {

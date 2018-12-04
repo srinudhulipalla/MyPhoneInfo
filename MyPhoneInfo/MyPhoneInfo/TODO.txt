@@ -17,3 +17,6 @@ public static String getTotalExternalMemorySize() {
         return ERROR;
     }
 }
+
+
+https://stackoverflow.com/questions/3213205/how-to-detect-system-information-like-os-or-device-type

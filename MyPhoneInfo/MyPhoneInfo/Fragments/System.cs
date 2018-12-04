@@ -15,7 +15,7 @@ using Xamarin.Essentials;
 
 namespace MyPhoneInfo.Fragments
 {
-    public class System : Fragment
+    public class SystemInfo : Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -35,7 +35,7 @@ namespace MyPhoneInfo.Fragments
             listView.Adapter = new ListViewAdapter(Activity, items);
 
             // to update the latest info to UI
-            TimerCallback timerCallback = new TimerCallback(RunInBackground);
+            TimerCallback timerCallback = new TimerCallback(RunInBackground); 
 
             TimerState state = new TimerState();
             state.ListView = listView;

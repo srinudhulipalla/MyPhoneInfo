@@ -68,7 +68,7 @@ namespace MyPhoneInfo.Fragments
 
                 foreach (CpuCore core in cpuCores)
                 {
-                    var item = adapter.Items.FirstOrDefault(i => i.Name.Trim() == core.FormattedName);
+                    var item = adapter.Items.FirstOrDefault(i => i.Name.Trim() == core.ClockName);
 
                     if (item != null)
                     {
@@ -91,175 +91,36 @@ namespace MyPhoneInfo.Fragments
             List<ListItemModel> items = new List<ListItemModel>();
             items.Add(new ListItemModel() { Name = "Architecture", Value = architecture });
             items.Add(new ListItemModel() { Name = "CPU Cores", Value = totalCores });
-            items.Add(new ListItemModel() { Name = "Supported Abis", Value = supportedAbi });
-            items.Add(new ListItemModel() { Name = "Supported 32-bit Abis", Value = supported32BitAbi });
-            items.Add(new ListItemModel() { Name = "Supported 64-bit Abis", Value = supported64BitAbi });
+
+            long[] coreSpeedRange = GetMinMaxClockSpeedRange();
+
+            if (coreSpeedRange != null && coreSpeedRange[0] != 0 && coreSpeedRange[1] != 0)
+            {
+                items.Add(new ListItemModel() { Name = "Clock Speed Range", Value = $"{coreSpeedRange[0]} MHz - {coreSpeedRange[1]} MHz" });
+            }
 
             List<CpuCore> cpuCores = GetCpuCoresFrequency();
 
             foreach (CpuCore core in cpuCores)
             {
-                items.Add(new ListItemModel() { Name = core.FormattedName, Value = core.FrequencyMHz + " MHz" });
+                items.Add(new ListItemModel() { Name = core.ClockName.PadLeft(15, ' '), Value = core.FrequencyMHz + " MHz" });
             }
 
             items.Add(new ListItemModel() { Name = "Scaling Governor", Value = GetScalingGovernor() });
+            items.Add(new ListItemModel() { Name = "Supported ABIs", Value = supportedAbi });
+            items.Add(new ListItemModel() { Name = "Supported 32-bit ABIs", Value = supported32BitAbi });
+            items.Add(new ListItemModel() { Name = "Supported 64-bit ABIs", Value = supported64BitAbi });
 
+          
+            
 
-            //string[] DATA = new string[] { "/system/bin/cat", "/proc/cpuinfo" };
-            ////byte[] byteArry = new byte[1024];
-            //ProcessBuilder processBuilder = null;
+            return items;
 
-            //try
-            //{
-            //    processBuilder = new ProcessBuilder(DATA);
-
-            //    Java.Lang.Process  process = processBuilder.Start();
-
-            //    System.IO.Stream  inputStream = process.InputStream;
-
-            //    byte[] bytes = new byte[inputStream.Length];
-            //    inputStream.Position = 0;
-            //    inputStream.Read(bytes, 0, (int)inputStream.Length);
-            //    string data = Encoding.ASCII.GetString(bytes); // this is your string
-
-            //}
-            //catch (IOException ex)
-            //{
-
-            //    ex.PrintStackTrace();
-            //}
-
-            //string cmd = "top -m 1000 -d 1 -n 1 | grep \"" + pid + "\" ";
-            //Runtime.GetRuntime().Exec(cmd);
-
-
-
-            //var display = Activity.WindowManager.DefaultDisplay;
-
-
-            //int[] cpu = getCpuUsageStatistic();
-            //if (cpu != null)
-            //{
-            //    int DEVICE_TOTAL_CPU_USAGE = cpu[0] + cpu[1] + cpu[2] + cpu[3];
-            //    int DEVICE_TOTAL_CPU_USAGE_SYSTEM = cpu[1];
-            //    int DEVICE_TOTAL_CPU_USAGE_USER = cpu[0];
-            //    int DEVICE_TOTAL_CPU_IDLE = cpu[2];
-            //}
-
-            //System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            //sb.Append("abi: ").Append(Build.CpuAbi).Append("\n");
-
-            //if (new File("/proc/cpuinfo").Exists())
-            //{
-            //    try
-            //    {
-            //        //BufferedReader br = new BufferedReader(new FileReader(new File("/proc/cpuinfo")));
-            //        //String aLine;
-
-            //        BufferedReader br = new BufferedReader(new FileReader(new File("/proc/cpuinfo")));
-            //        string aLine;
-            //        while ((aLine = br.ReadLine()) != null)
-            //        {
-            //            sb.Append(aLine + "\n");
-            //        }
-            //        if (br != null)
-            //        {
-            //            br.Close();
-            //        }
-            //    }
-            //    catch (IOException e)
-            //    {
-            //        e.PrintStackTrace();
-            //    }
-            //}
-
-            //string ss = sb.ToString();
-
-            //https://stackoverflow.com/questions/3021054/how-to-read-cpu-frequency-on-android-device
             //# cat "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq"
             //# cat "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq"
             //# cat "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq"
             ///sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-            //////sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
-
-            //var files = GetCpuCoresFilePath(); //loop below random access file code for each core
-
-            //foreach (string file in files)
-            //{
-            //    ///sys/devices/system/cpu/cpu4/cpufreq/scaling_cur_freq
-            //    string newFile = file + "/cpufreq/scaling_cur_freq";
-            //    sb = new System.Text.StringBuilder();
-
-            //    if (new File(newFile).Exists())
-            //    {
-            //        try
-            //        {
-            //            //BufferedReader br = new BufferedReader(new FileReader(new File("/proc/cpuinfo")));
-            //            //String aLine;
-
-            //            RandomAccessFile reader = new RandomAccessFile(newFile, "r");
-            //            string load = reader.ReadLine();
-            //            reader.Close();
-
-            //            //BufferedReader br = new BufferedReader(new FileReader(new File(newFile)));
-            //            //string aLine;
-            //            //while ((aLine = br.ReadLine()) != null)
-            //            //{
-            //            //    sb.Append(aLine + "\n");
-            //            //}
-            //            //if (br != null)
-            //            //{
-            //            //    br.Close();
-            //            //}
-            //        }
-            //        catch (IOException e)
-            //        {
-            //            e.PrintStackTrace();
-            //        }
-            //    }
-
-            //    //RandomAccessFile reader = new RandomAccessFile(file, "r");
-
-            //    //try
-            //    //{
-            //    //    //string load = reader.ReadLine();
-            //    //    string load = sb.ToString();
-
-            //    //    string[] toks = load.Split(" ");  // Split on one or more spaces
-
-            //    //    long idle1 = Long.ParseLong(toks[4]);
-            //    //    long cpu1 = Long.ParseLong(toks[2]) + Long.ParseLong(toks[3]) + Long.ParseLong(toks[5])
-            //    //          + Long.ParseLong(toks[6]) + Long.ParseLong(toks[7]) + Long.ParseLong(toks[8]);
-
-            //    //    try
-            //    //    {
-            //    //        Thread.Sleep(360);
-            //    //    }
-            //    //    catch (System.Exception e) { }
-
-            //    //    //reader.Seek(0);
-            //    //    //load = reader.ReadLine();
-            //    //    //reader.Close();
-
-            //    //    toks = load.Split(" +");
-
-            //    //    long idle2 = Long.ParseLong(toks[4]);
-            //    //    long cpu2 = Long.ParseLong(toks[2]) + Long.ParseLong(toks[3]) + Long.ParseLong(toks[5])
-            //    //        + Long.ParseLong(toks[6]) + Long.ParseLong(toks[7]) + Long.ParseLong(toks[8]);
-
-            //    //    var value = (float)(cpu2 - cpu1) / ((cpu2 + idle2) - (cpu1 + idle1));
-            //    //}
-            //    //catch { }
-
-            //}
-
-
-
-
-
-
-
-            return items;
+            ///sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies
         }
 
 
@@ -272,7 +133,7 @@ namespace MyPhoneInfo.Fragments
                 try
                 {
                     string scalingFreqFilePath = $"{core.FilePath}/cpufreq/scaling_cur_freq".Replace("//", "/");
-                   
+
                     string frequency = Utils.ReadFile(scalingFreqFilePath);
 
                     if (!string.IsNullOrWhiteSpace(frequency))
@@ -319,97 +180,41 @@ namespace MyPhoneInfo.Fragments
             return Utils.ReadFile(path);
         }
 
-        private static int[] getCpuUsageStatistic()
+        long[] GetMinMaxClockSpeedRange()
         {
+            long[] iRange = new long[2];
+
             try
             {
-                string tempString = executeTop();
+                int cores = Runtime.GetRuntime().AvailableProcessors();
 
-                tempString = tempString.Replace(",", "");
-                tempString = tempString.Replace("User", "");
-                tempString = tempString.Replace("System", "");
-                tempString = tempString.Replace("IOW", "");
-                tempString = tempString.Replace("IRQ", "");
-                tempString = tempString.Replace("%", "");
-                for (int i = 0; i < 10; i++)
-                {
-                    tempString = tempString.Replace("  ", " ");
-                }
-                tempString = tempString.Trim();
-                string[] myString = tempString.Split(" ");
-                int[] cpuUsageAsInt = new int[myString.Length];
-                for (int i = 0; i < myString.Length; i++)
-                {
-                    myString[i] = myString[i].Trim();
-                    cpuUsageAsInt[i] = Integer.ParseInt(myString[i]);
-                }
-                return cpuUsageAsInt;
+                string minPath = "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_min_freq";
+                string maxPath = $"/sys/devices/system/cpu/cpu{cores - 1}/cpufreq/cpuinfo_max_freq";
 
+                string minValue = Utils.ReadFile(minPath);
+                string maxValue = Utils.ReadFile(maxPath);
+
+                if (!string.IsNullOrWhiteSpace(minValue))
+                {
+                    iRange[0] = long.Parse(minValue) / 1000;
+                }
+
+                if (!string.IsNullOrWhiteSpace(maxValue))
+                {
+                    iRange[1] = long.Parse(maxValue) / 1000;
+                }
+
+                return iRange;
             }
-            catch (Java.Lang.Exception e)
+            catch (Java.Lang.Exception ex)
             {
-                e.PrintStackTrace();
-                //Log.e("executeTop", "error in getting cpu statics");
+                ex.PrintStackTrace();
                 return null;
             }
         }
 
-        private static string executeTop()
-        {
-            Java.Lang.Process p = null;
-            BufferedReader in1 = null;
-            string returnString = null;
-            try
-            {
-                p = Runtime.GetRuntime().Exec("top -n 1");
-                in1 = new BufferedReader(new InputStreamReader(p.InputStream));
-                while (returnString == null || returnString == "")
-                {
-                    returnString = in1.ReadLine();
-                }
-            }
-            catch (IOException e)
-            {
-                //Log.e("executeTop", "error in getting first line of top");
-                e.PrintStackTrace();
-            }
-            finally
-            {
-                try
-                {
-                    in1.Close();
-                    p.Destroy();
-                }
-                catch (IOException e)
-                {
-                    //Log.e("executeTop", "error in closing and destroying top process");
-                    e.PrintStackTrace();
-                }
-            }
-            return returnString;
-        }
+
 
     }
 
-    //public class CpuFilter : IFileFilter
-    //{
-    //    public IntPtr Handle => new IntPtr(0); // throw new NotImplementedException();
-
-    //    public bool Accept(File pathname)
-    //    {
-    //        //Pattern.matches("cpu[0-9]+", pathname.Name)
-
-    //        //Check if filename is "cpu", followed by one or more digits
-    //        if (System.Text.RegularExpressions.Regex.Match(pathname.Name, "cpu[0-9]+").Success)
-    //        {
-    //            return true;
-    //        }
-    //        return false;
-    //    }
-
-    //    public void Dispose()
-    //    {
-    //        return;
-    //    }
-    //}
 }

@@ -18,13 +18,24 @@ namespace MyPhoneInfo.ViewModel
         public string FilePath { get; set; }
         public long FrequencyKHz { get; set; }
 
-        public string FormattedName
+        public string ClockName
         {
             get
             {
-                if (this.Name == null || this.Name.Length <= 3) return this.Name;
-                return $"{this.Name.Substring(0, 3).ToUpper()} {this.Name.Substring(3)}";
-            } 
+                if (this.Name == null) return this.Name;
+                string id = this.Name.ToLower().Replace("cpu", string.Empty);
+
+                int clockId = 0;
+
+                if (int.TryParse(id, out clockId))
+                {
+                    return $"Core {clockId + 1}";
+                }
+                else
+                {
+                    return this.Name;
+                }
+            }
         }
 
         public long FrequencyMHz

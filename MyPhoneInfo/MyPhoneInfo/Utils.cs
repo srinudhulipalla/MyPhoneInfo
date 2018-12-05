@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
 
 namespace MyPhoneInfo
 {
@@ -34,5 +35,26 @@ namespace MyPhoneInfo
 
             return size;
         }
+
+        public static string ReadFile(string path)
+        {
+            string content = string.Empty;
+
+            try
+            {
+                if (new File(path).Exists())
+                {
+                    RandomAccessFile reader = new RandomAccessFile(path, "r");
+                    content = reader.ReadLine();
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            { }
+
+            return content;
+        }
+
     }
 }

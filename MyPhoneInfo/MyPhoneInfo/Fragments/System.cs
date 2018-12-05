@@ -34,7 +34,7 @@ namespace MyPhoneInfo.Fragments
             List<ListItemModel> items = GetSystemInfo();
             listView.Adapter = new ListViewAdapter(Activity, items);
 
-            // to update the latest info to UI
+            // to update the latest info to UI (available ram)
             TimerCallback timerCallback = new TimerCallback(RunInBackground); 
 
             TimerState state = new TimerState();

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fragments\CPU.cs" />
+    <Compile Include="Fragments\Display.cs" />
     <Compile Include="Fragments\System.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
